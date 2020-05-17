@@ -11,7 +11,7 @@ var ProductController = require('./Controller/ProductController');
 var ShopingCartController = require('./Controller/ShopingCartController');
 var mainRouter = require('./Controller/main');
 var categoryMidleware = require('./MiddleWare/categoryMidleware');
-
+var PORT = 8000;
 
 var app = express();
 app.use(session({
@@ -55,5 +55,6 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-app.listen(8000);
+app.listen(PORT);
+console.log('listening to port' + PORT)
 module.exports = app;
