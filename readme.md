@@ -22,8 +22,13 @@ Execute the instruction in Ubuntu, or Linux based os.
 Required Packages
 
  1.Nodejs v8.9 or superior
- 2.Docker  
  
+ 2.Docker  
+
+Instruction to Run the App
+
+note:Execute the instruction in Ubuntu, or Linux based os.
+
 Create a folder to download the web Application and open a terminal in the new folder and execute the following commands in order.
 1.	git clone https://github.com/tatisgordon/CondorLabsShop.git
 2.	sudo docker build --tag pg1 CondorLabsShop/Docker
