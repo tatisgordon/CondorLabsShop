@@ -1,7 +1,7 @@
 set PGUSER=postgres
-set PGHOST=localhost
-set PGPASSWORD=
-set PGDATABASE=shopcondorlabs
-set PGPORT=5432 
+set PGHOST=192.168.99.100
+set PGPASSWORD=123456
+set PGDATABASE=postgres
+set PGPORT=5433 
 node app.js
 pause
