@@ -1,31 +1,31 @@
-Shopping for CondorLab
+**Shopping for CondorLab**
 
 This application was built as an interview test for the CondorLab Company.
 
-Frontend
+**Frontend**
 
 Frontend Code is located at the folders "CondorLabTest/view" and Public/Javascritps. 
 Used Ejs as the frontEnd Engine.
 All the third libraries are located in the folder public/ExternalLibraris
 
-BackEnd
+**BackEnd**
 
 Used nodejs As the Backend Server.
 The third party modules can be identified by a comment at the top of the files.
 
-Database
+**Database**
 
 Used Postgres as the Database engine. The application is located in a docker container. Follow the instructions to run the database app.
 Instruction to Run the App.
 Execute the instruction in Ubuntu, or Linux based os.
 
-Required Packages
+**Required Packages**
 
  1.Nodejs v8.9 or superior
  
  2.Docker  
 
-Instruction to Run the App
+**Instruction to Run the App**
 
 note:Execute the instruction in Ubuntu, or Linux based os.
 
