@@ -1,0 +1,33 @@
+<%- include('./Templates/headerTemplate')-%>
+
+
+    <div class="container   ">
+        <% for( let index = 0; index < categorislist.length; index++ ) { %>
+            <div class="row  ">
+                <section catid="<%- categorislist[index].id %>">
+                    <div class=" d-none d-md-none d-lg-block imageScrollers">
+                        <span class="imageScrollBack"><img class="floating" src="images/arrow.png" alt="" onclick="scrollPage(<%-categorislist[index].id%>,this,-1)"></span>
+                        <span class="imageScrollNext"><img  class="floating" src="images/arrow2.png" alt="" onclick="scrollPage(<%-categorislist[index].id%>,this,1)"></span>
+                    </div>
+                    <div class="col ">
+                        <div class="label ">
+                            <%- categorislist[index].description %>
+                        </div>
+                        <div id="root">
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="row d-md-block d-lg-none justify-content-center">
+                <button onclick="scrollPage(<%-categorislist[index].id%>,this,1,true)" " class=" btn btn-primary "> more..</button>
+
+            </div>
+
+            <% } %>
+
+
+    </div>
+    <script src="JavaScript/index.js "></script>
+    
+    <%- include('./Templates/footerTemplate')-%>

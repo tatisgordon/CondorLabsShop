@@ -1,0 +1,98 @@
+</div>
+</div>
+</div>
+</body>
+
+
+<script>
+    textbox = $('#searchbar');
+    $(() => {
+
+        textbox.on("keyup", function(event) {
+
+            if (event.keyCode === 13) {
+
+                event.preventDefault();
+
+                filter();
+            }
+        });
+
+
+    })
+
+    function buildProductHTML(data) {
+
+        var template = ` <div class="ProductOutline width100" onmouseover="onproductMouseOver(this)" onmouseout="onproductMouseLeave(this)">
+                                   <img  onClick="ProductSelected({id})" src="images/{image}.jpg" class="card-img-top" alt="Responsive image">
+                                   <div class="ok" style="margin: 1em;">
+                                       <P class="category">{cat}</P>
+                                       <P class="tittle"  onClick="ProductSelected({id})" >{nombre}</P>
+                                       <P class="price"  onClick="ProductSelected({id})">$ {precio}</P>
+                                       <div class="shopButton" ><button class="btn btn-primary" onclick="addtoproductToCart({id})">Add to Cart</button></div>
+                                   </div>
+                               </div>`;
+        return replaceTemplate(template, data);
+    }
+
+    function onproductMouseOver(producthtml) {
+        $(producthtml).children('.ok').children('.shopButton').css('display', 'grid');
+    }
+
+    function onproductMouseLeave(producthtml) {
+        $(producthtml).children('.ok').children('.shopButton').css('display', 'none');
+    }
+
+    function replaceTemplate(template, data) { //remplazar Template
+
+        const pattern = /{(\w+?)}/g; // {property}
+        return template.replace(pattern, (_, token) => data[token]);
+    }
+
+    function ProductSelected(id) {
+
+
+
+        window.location.href = '/product?id=' + id;
+    }
+
+    function addtoproductToCart(_productid) {
+
+        $.post({
+            url: " cart/addtoCar",
+            data: {
+                productid: _productid
+            }
+
+        }).done(function(data) {
+            ShowNotification('Product added');
+        }).fail(() => {
+            JqueryErrorHanding({
+                errormes: 'The product is already in the Cart'
+            })
+        });
+    }
+    notificationJQuery = $('#notificationDIV');
+    //handles Errors in the ajax Request
+    function JqueryErrorHanding(err) {
+        ShowNotification(err.errormes || 'Something went Wrong', 'danger');
+
+    }
+    //show a notification using the notify library
+    function ShowNotification(data, type) {
+
+        $.notify({
+
+            message: data
+        }, {
+            placement: {
+                from: "top",
+                align: "center"
+            },
+            type: type || 'info',
+            timer: 1000,
+        });
+    }
+</script>
+
+</html>
